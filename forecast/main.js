@@ -32,7 +32,12 @@ L.control.scale({
 
 //MET Norway kartenvorhersage visualisieren
 async function showForecast(latlng) {
-    console.log("Popup erzeugen bei:", latlng);
+   // console.log("Popup erzeugen bei:", latlng);
+    let url = `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${latlng.lat}&lon=${latlng.lng}`;
+   // console.log(url);
+    let response = await fetch(url);
+    let jsondata = await response.json();
+   // console.log(jsondata);
 }
 // auf Kartenklick reagieren
 map.on("click", function(evt){
