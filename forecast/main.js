@@ -98,3 +98,25 @@ map.fire("click", {
         lng: ibk.lng,
     }
 })
+
+// Windy Karte
+fetch('https://geographie.uibk.ac.at/data/ecmwf/data/wind-10u-10v-europe.json')
+    .then(response => response.json())
+    .then(data => {
+        var velocityLayer = L.velocityLayer({
+            displayValues: true,
+            displayOptions: {
+                velocityType: "Wind",
+                position: "bottomleft",
+                speedUnit: "k/h",
+                directionString: "Richtung",
+                speedString: "Geschwindigkeit"
+            },
+            data: data,
+            minVelocity: 0,
+            maxVelocity: 10,
+            velocityScale: 0.005,
+            opacity: 0.97
+        }).addTo(map);
+    })
+    .catch(error => console.error("Fehler beim Laden der Winddaten:", error));
