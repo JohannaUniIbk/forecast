@@ -105,7 +105,8 @@ map.fire("click", {
         try {
             const response = await fetch('https://geographie.uibk.ac.at/data/ecmwf/data/wind-10u-10v-europe.json');
             const data = await response.json();
-            
+            let forecastDate = new Date(jsondata[0].header.refTime);
+            forecastDate.setHours(forecastDate.getHours()+jsondata[0].header.forecastTime);
             const velocityLayer = L.velocityLayer({
                 displayValues: true,
                 displayOptions: {
