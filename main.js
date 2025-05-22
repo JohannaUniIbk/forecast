@@ -127,7 +127,7 @@ map.fire("click", {
                     "#fee08b", "#fdae61", "#f46d43", "#d53e4f"
                 ],
                 opacity: 0.97
-            }).addTo(map);
+            }).addTo(overlays.wind);
         } catch (error) {
             console.error("Fehler beim Laden der Winddaten:", error);
             alert("Winddaten konnten nicht geladen werden.");
