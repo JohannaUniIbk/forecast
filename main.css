@@ -50,3 +50,6 @@ footer {
 footer nav {
     display: inline-block;
 }
+.leaflet-canvas-layer {
+    opacity: 0.55;
+}
